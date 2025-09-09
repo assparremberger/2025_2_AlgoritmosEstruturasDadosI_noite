@@ -16,6 +16,7 @@ cidades = [cid1, cid2]
 tc = TelaCidade( cidades = cidades)
 
 tp = TelaPessoa(tc, cidades)
+tc.telaPessoa = tp
 tp.show()
 
 #tf = TelaFisica()

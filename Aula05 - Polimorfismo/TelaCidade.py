@@ -6,6 +6,7 @@ class TelaCidade( QMainWindow ):
 
     def __init__(self, titulo = "Cadastro de Cidade" , cidades = []):
         super().__init__()
+        self.telaPessoa = None
         self.cidades = cidades
         self.setWindowTitle( titulo )
         self.setGeometry(100, 100, 200, 100)
@@ -13,14 +14,14 @@ class TelaCidade( QMainWindow ):
 
         self.definirLayout()
         self.btnSalvar = QPushButton( "Salvar" , self )
-        self.btnSalvar.clicked.connect( self.salvar )
+        self.btnSalvar.clicked.connect( self.__salvar )
         self.layout.addWidget( self.btnSalvar )
 
         container = QWidget()
         container.setLayout( self.layout )
         self.setCentralWidget( container )
 
-    def salvar(self):
+    def __salvar(self):
         nome = self.txtNome.text()
         if nome != "" :
             cid = Cidade( nome )
@@ -28,6 +29,7 @@ class TelaCidade( QMainWindow ):
             self.txtNome.setText( "" )
             QMessageBox.information( self , "Cidade Cadastrada" , str(cid) + 
                                 "\n cadastrado(a) com sucesso!" )
+            self.telaPessoa.carregarCidades()
             self.hide()
 
     def definirLayout(self):

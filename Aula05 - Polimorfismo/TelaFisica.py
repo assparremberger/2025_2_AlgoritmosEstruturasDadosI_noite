@@ -17,7 +17,7 @@ class TelaFisica( TelaPessoa ):
         self.txtCPF= QLineEdit(self)
         self.layout.addWidget( self.txtCPF)
 
-    def salvar(self):
+    def __salvar(self):
         nome = self.txtNome.text()
         cidade = Cidade( self.txtCidade.text() )
         cpf = self.txtCPF.text()

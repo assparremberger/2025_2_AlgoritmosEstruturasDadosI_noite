@@ -15,14 +15,14 @@ class TelaPessoa( QMainWindow ):
 
         self.definirLayout()
         self.btnSalvar = QPushButton( "Salvar" , self )
-        self.btnSalvar.clicked.connect( self.salvar )
+        self.btnSalvar.clicked.connect( self.__salvar )
         self.layout.addWidget( self.btnSalvar )
 
         container = QWidget()
         container.setLayout( self.layout )
         self.setCentralWidget( container )
 
-    def salvar(self):
+    def __salvar(self):
         nome = self.txtNome.text()
         #cidade = Cidade( self.txtCidade.text() )
         if nome != "" and self.cmbCidade.currentIndex() != 0:
