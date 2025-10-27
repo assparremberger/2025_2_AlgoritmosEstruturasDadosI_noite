@@ -49,7 +49,7 @@ class ListaDuplamenteEncadeada:
 
     def imprimirReverso(self):
         print( "-----------------------------------")
-        print( "Lista DUplamente Encadeada em ordem crescente Reversa")
+        print( "Lista Duplamente Encadeada em ordem crescente Reversa")
         if self.inicio is None:
             print(" -- Lista Vazia -- ")
         else:
@@ -76,8 +76,12 @@ class ListaDuplamenteEncadeada:
                 while aux != None:
                     if valor == aux.dado:
                         ant.proximo = aux.proximo
-                        #falta finalizar aqui
-                        aux.proximo.anterior =  ant
+                        
+                        if ant.proximo is None:
+                            self.fim = None
+                        else:
+                            proxNo = aux.proximo
+                            proxNo.anterior = ant
                         removeu = True
                         break
                     else:
@@ -89,6 +93,4 @@ class ListaDuplamenteEncadeada:
                 print( "Elemento " + valor + " não encontrado!")
             
             self.imprimir()
-
-
     
